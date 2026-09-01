@@ -1,0 +1,44 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gridops-backend
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/gridops_db}
+    username: ${SPRING_DATASOURCE_USERNAME:gridops_user}
+    password: ${SPRING_DATASOURCE_PASSWORD:gridops_secure_password}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+  data:
+    redis:
+      host: ${SPRING_DATA_REDIS_HOST:localhost}
+      port: ${SPRING_DATA_REDIS_PORT:6379}
+  task:
+    scheduling:
+      pool:
+        size: 5
+
+analytics:
+  service:
+    url: ${ANALYTICS_SERVICE_URL:http://localhost:8000}
+
+verification:
+  window-minutes: 60
+  recovery-threshold-pct: 95.0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
