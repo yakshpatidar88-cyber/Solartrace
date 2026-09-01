@@ -1,0 +1,40 @@
+# GitOps Root .gitignore
+
+# Node / Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+frontend/.env.*.local
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# Java / Spring Boot Backend
+backend/target/
+backend/.mvn/wrapper/maven-wrapper.jar
+backend/mvnw
+backend/mvnw.cmd
+backend/*.iml
+backend/.idea/
+backend/.vscode/
+backend/*.log
+
+# Python / Analytics & Simulator
+analytics/__pycache__/
+analytics/*/__pycache__/
+analytics/*.pyc
+analytics/.pytest_cache/
+analytics/venv/
+analytics/.env
+simulator/__pycache__/
+simulator/*.pyc
+simulator/venv/
+
+# Environment & OS
+.DS_Store
+Thumbs.db
+.env
+.idea/
+.vscode/
+*.swp
+*.bak
