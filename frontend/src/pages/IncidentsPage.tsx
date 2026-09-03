@@ -4,11 +4,12 @@ import { MaintenanceIncident } from '../types';
 import { IncidentCard } from '../components/IncidentCard';
 import { AssignModal } from '../components/AssignModal';
 import { CompleteModal } from '../components/CompleteModal';
-import { AlertCircle, Filter, CheckCircle } from 'lucide-react';
+import { AlertCircle, Filter, CheckCircle, Search } from 'lucide-react';
 
 export const IncidentsPage: React.FC = () => {
   const [incidents, setIncidents] = useState<MaintenanceIncident[]>([]);
   const [filterPriority, setFilterPriority] = useState<string>('ALL');
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedIncident, setSelectedIncident] = useState<MaintenanceIncident | null>(null);
   const [selectedWorkOrderId, setSelectedWorkOrderId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -31,8 +32,12 @@ export const IncidentsPage: React.FC = () => {
   }, []);
 
   const filtered = incidents.filter((i) => {
-    if (filterPriority === 'ALL') return true;
-    return i.priority === filterPriority;
+    const matchesPriority = filterPriority === 'ALL' || i.priority === filterPriority;
+    const matchesSearch = searchQuery === '' || 
+      i.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      i.assetName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      i.siteName.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesPriority && matchesSearch;
   });
 
   return (
@@ -45,20 +50,33 @@ export const IncidentsPage: React.FC = () => {
           </p>
         </div>
 
-        {/* Priority Filter */}
-        <div className="flex items-center gap-2 bg-slate-900 border border-slate-800 p-1.5 rounded-xl">
-          <Filter className="h-4 w-4 text-slate-400 ml-2" />
-          <select
-            value={filterPriority}
-            onChange={(e) => setFilterPriority(e.target.value)}
-            className="bg-transparent text-xs text-slate-200 focus:outline-none pr-2"
-          >
-            <option value="ALL" className="bg-slate-900">All Priorities</option>
-            <option value="P1_CRITICAL" className="bg-slate-900">P1 - Critical</option>
-            <option value="P2_HIGH" className="bg-slate-900">P2 - High</option>
-            <option value="P3_MEDIUM" className="bg-slate-900">P3 - Medium</option>
-            <option value="P4_LOW" className="bg-slate-900">P4 - Low</option>
-          </select>
+        {/* Search & Priority Filter Controls */}
+        <div className="flex flex-wrap items-center gap-3">
+          <div className="flex items-center gap-2 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-xl">
+            <Search className="h-4 w-4 text-slate-400" />
+            <input
+              type="text"
+              placeholder="Search asset, site, title..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="bg-transparent text-xs text-slate-200 placeholder-slate-500 focus:outline-none w-44 sm:w-56"
+            />
+          </div>
+
+          <div className="flex items-center gap-2 bg-slate-900 border border-slate-800 p-1.5 rounded-xl">
+            <Filter className="h-4 w-4 text-slate-400 ml-2" />
+            <select
+              value={filterPriority}
+              onChange={(e) => setFilterPriority(e.target.value)}
+              className="bg-transparent text-xs text-slate-200 focus:outline-none pr-2"
+            >
+              <option value="ALL" className="bg-slate-900">All Priorities</option>
+              <option value="P1_CRITICAL" className="bg-slate-900">P1 - Critical</option>
+              <option value="P2_HIGH" className="bg-slate-900">P2 - High</option>
+              <option value="P3_MEDIUM" className="bg-slate-900">P3 - Medium</option>
+              <option value="P4_LOW" className="bg-slate-900">P4 - Low</option>
+            </select>
+          </div>
         </div>
       </div>
 
