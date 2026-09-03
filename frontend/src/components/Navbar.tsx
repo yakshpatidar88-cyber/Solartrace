@@ -1,8 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Zap, AlertTriangle, History, Users, Activity } from 'lucide-react';
+import { LayoutDashboard, Zap, AlertTriangle, History, Activity, Radio } from 'lucide-react';
+import { useWebSocket } from '../hooks/useWebSocket';
 
 export const Navbar: React.FC = () => {
+  const { isConnected } = useWebSocket();
   const navItems = [
     { to: '/', label: 'Overview', icon: LayoutDashboard },
     { to: '/assets', label: 'Fleet & Assets', icon: Zap },
@@ -20,8 +22,13 @@ export const Navbar: React.FC = () => {
             </div>
             <div>
               <span className="font-bold text-lg text-white tracking-tight">GridOps</span>
-              <span className="ml-2 text-xs font-medium px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                LIVE
+              <span className={`ml-2 text-xs font-medium px-2 py-0.5 rounded border inline-flex items-center gap-1 ${
+                isConnected
+                  ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30'
+                  : 'bg-amber-500/20 text-amber-400 border-amber-500/30'
+              }`}>
+                <Radio className="h-3 w-3 animate-pulse" />
+                {isConnected ? 'LIVE WS' : 'POLLING'}
               </span>
             </div>
           </div>
