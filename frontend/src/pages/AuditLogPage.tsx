@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { api } from '../services/api';
 import { AuditEvent } from '../types';
-import { History, ShieldCheck, User, Terminal } from 'lucide-react';
+import { History, User, Terminal } from 'lucide-react';
 
 export const AuditLogPage: React.FC = () => {
   const [logs, setLogs] = useState<AuditEvent[]>([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     api.getRecentAuditLogs().then((data) => {
       setLogs(data);
-      setLoading(false);
     });
   }, []);
 

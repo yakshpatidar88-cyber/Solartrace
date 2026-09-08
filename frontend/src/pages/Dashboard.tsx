@@ -13,7 +13,6 @@ export const Dashboard: React.FC = () => {
   const [telemetry, setTelemetry] = useState<TelemetryReading[]>([]);
   const [selectedIncident, setSelectedIncident] = useState<MaintenanceIncident | null>(null);
   const [selectedWorkOrderId, setSelectedWorkOrderId] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
     try {
@@ -28,8 +27,6 @@ export const Dashboard: React.FC = () => {
       }
     } catch (err) {
       console.error('Failed to load dashboard data:', err);
-    } finally {
-      setLoading(false);
     }
   };
 

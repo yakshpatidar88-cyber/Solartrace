@@ -4,7 +4,7 @@ import { MaintenanceIncident } from '../types';
 import { IncidentCard } from '../components/IncidentCard';
 import { AssignModal } from '../components/AssignModal';
 import { CompleteModal } from '../components/CompleteModal';
-import { AlertCircle, Filter, CheckCircle, Search } from 'lucide-react';
+import { Filter, CheckCircle, Search } from 'lucide-react';
 
 export const IncidentsPage: React.FC = () => {
   const [incidents, setIncidents] = useState<MaintenanceIncident[]>([]);
@@ -12,7 +12,6 @@ export const IncidentsPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedIncident, setSelectedIncident] = useState<MaintenanceIncident | null>(null);
   const [selectedWorkOrderId, setSelectedWorkOrderId] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
 
   const fetchIncidents = async () => {
     try {
@@ -20,8 +19,6 @@ export const IncidentsPage: React.FC = () => {
       setIncidents(data);
     } catch (err) {
       console.error('Failed to load incidents:', err);
-    } finally {
-      setLoading(false);
     }
   };
 
