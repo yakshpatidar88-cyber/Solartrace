@@ -9,6 +9,7 @@ import com.gridops.repository.MaintenanceIncidentRepository;
 import com.gridops.repository.SiteRepository;
 import com.gridops.repository.TelemetryReadingRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +27,7 @@ public class DashboardService {
     private final TelemetryReadingRepository telemetryRepository;
     private final MaintenanceIncidentService incidentService;
 
+    @Cacheable(value = "fleetSummary", key = "'latest'")
     public DashboardSummaryDto getFleetSummary() {
         long totalSites = siteRepository.count();
         List<Asset> allAssets = assetRepository.findAll();
