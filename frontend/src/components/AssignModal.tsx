@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { MaintenanceIncident, Technician } from '../types';
 import { api } from '../services/api';
-import { X, UserCheck, Shield } from 'lucide-react';
+import { X, UserCheck } from 'lucide-react';
 
 interface AssignModalProps {
   incident: MaintenanceIncident | null;

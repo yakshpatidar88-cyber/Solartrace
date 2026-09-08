@@ -1,24 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { api } from '../services/api';
-import { Asset, Site, TelemetryReading } from '../types';
+import { Asset, TelemetryReading } from '../types';
 import { TelemetryChart } from '../components/TelemetryChart';
-import { Zap, MapPin, Gauge, Shield, Cpu, RefreshCw } from 'lucide-react';
 
 export const AssetsPage: React.FC = () => {
-  const [sites, setSites] = useState<Site[]>([]);
   const [assets, setAssets] = useState<Asset[]>([]);
   const [selectedAsset, setSelectedAsset] = useState<Asset | null>(null);
   const [telemetry, setTelemetry] = useState<TelemetryReading[]>([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    Promise.all([api.getSites(), api.getAssets()]).then(([sitesData, assetsData]) => {
-      setSites(sitesData);
+    api.getAssets().then((assetsData) => {
       setAssets(assetsData);
       if (assetsData.length > 0) {
         setSelectedAsset(assetsData[0]);
       }
-      setLoading(false);
     });
   }, []);
 

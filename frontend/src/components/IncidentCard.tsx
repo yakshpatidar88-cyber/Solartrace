@@ -1,6 +1,6 @@
 import React from 'react';
 import { MaintenanceIncident } from '../types';
-import { AlertCircle, Clock, CheckCircle2, UserCheck, ShieldAlert } from 'lucide-react';
+import { Clock, CheckCircle2, UserCheck } from 'lucide-react';
 
 interface IncidentCardProps {
   incident: MaintenanceIncident;

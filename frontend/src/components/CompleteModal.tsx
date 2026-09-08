@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { api } from '../services/api';
-import { X, CheckCircle2, Wrench } from 'lucide-react';
+import { X, Wrench } from 'lucide-react';
 
 interface CompleteModalProps {
   workOrderId: string | null;
