@@ -21,7 +21,7 @@ export const Navbar: React.FC = () => {
               <Activity className="h-6 w-6" />
             </div>
             <div>
-              <span className="font-bold text-lg text-white tracking-tight">GridOps</span>
+              <span className="font-bold text-lg text-white tracking-tight">Solatrace</span>
               <span className={`ml-2 text-xs font-medium px-2 py-0.5 rounded border inline-flex items-center gap-1 ${
                 isConnected
                   ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30'

@@ -1,6 +1,6 @@
-# 🎓 GridOps: Placement & GitHub Execution Blueprint (3rd Year B.Tech)
+# 🎓 Solatrace: Placement & GitHub Execution Blueprint (3rd & 4th Year B.Tech)
 
-This guide is designed for **3rd-year engineering students sitting for placements**. It gives you a structured day-by-day GitHub workflow, interview-ready answers, and system design explanations.
+This guide is designed for **engineering students sitting for placements**. It gives you a structured day-by-day GitHub workflow, interview-ready answers, and system design explanations.
 
 ---
 
@@ -12,7 +12,7 @@ To showcase strong version control practices to recruiters, use structured seman
 ```bash
 git init
 git add README.md docker-compose.yml .github/
-git commit -m "feat(infra): initialize GridOps repo, architecture spec and docker-compose"
+git commit -m "feat(infra): initialize Solatrace repo, architecture spec and docker-compose"
 ```
 
 ### 🗓️ Day 2: Database Schema & Domain Modeling
@@ -79,7 +79,7 @@ git commit -m "docs: finalize system documentation, placement talking points and
 
 ## 🚀 2. How to Push to GitHub
 
-1. Go to [GitHub](https://github.com/new) and create a new public repository named `gridops`.
+1. Go to [GitHub](https://github.com/new) and create a new public repository named `solatrace`.
 2. Open PowerShell / Command Prompt inside `C:\Users\HP\.gemini\antigravity\scratch\gridops`:
 ```bash
 cd C:\Users\HP\.gemini\antigravity\scratch\gridops
@@ -91,9 +91,9 @@ git config --global user.email "your.email@example.com"
 # Initialize and push
 git init
 git add .
-git commit -m "feat: initial commit of GridOps renewable asset operations platform"
+git commit -m "feat: initial commit of Solatrace renewable asset operations platform"
 git branch -M main
-git remote add origin https://github.com/<your-username>/gridops.git
+git remote add origin https://github.com/<your-username>/solatrace.git
 git push -u origin main
 ```
 
@@ -112,7 +112,7 @@ docker-compose up --build
 ### Option B: Running Services Individually
 
 1. **Start PostgreSQL & Redis**:
-   Ensure PostgreSQL is running with DB `gridops_db` on port 5432.
+   Ensure PostgreSQL is running with DB `solatrace_db` on port 5432.
 2. **Start FastAPI Analytics**:
    ```bash
    cd analytics
@@ -140,7 +140,7 @@ docker-compose up --build
 
 ## 💼 4. Resume Bullets (Ready to copy-paste)
 
-> **GridOps – Renewable Asset Performance & Operations Platform** | *Java 21, Spring Boot 3, Python (FastAPI), React, TypeScript, PostgreSQL, Redis, Docker*
+> **Solatrace – Renewable Asset Performance & Operations Platform** | *Java 21, Spring Boot 3, Python (FastAPI), React, TypeScript, PostgreSQL, Redis, Docker*
 > - Engineered an event-driven telemetry and anomaly detection platform for solar PV plants, processing 5-minute timeseries readings against physical irradiance/temperature derating models.
 > - Implemented a sustained deviation filter in Python/FastAPI to eliminate single-point noise, reducing false alarm incident generation by 65%.
 > - Built a multi-factor priority ranking engine $(P = \text{Loss} \times 0.4 + \text{Duration} \times 0.2 + \text{Criticality} \times 0.25 + \text{Urgency} \times 0.15)$ in Spring Boot to automatically prioritize high-impact inverter faults.
@@ -151,8 +151,8 @@ docker-compose up --build
 
 ## 🎯 5. Placement Interview Q&A (Crack Technical Rounds)
 
-### Q1: "Walk me through your GridOps architecture and technical decisions."
-> **Answer**: "GridOps is split into two specialized services:
+### Q1: "Walk me through your Solatrace architecture and technical decisions."
+> **Answer**: "Solatrace is split into two specialized services:
 > 1. **Core Operations Backend (Java / Spring Boot)**: Handles business domain logic, state machines, transactions, work order lifecycle, and audit logs. Java was chosen for strong typing, transactional integrity with JPA/Hibernate, and enterprise scheduling.
 > 2. **Analytics Microservice (Python / FastAPI / NumPy)**: Specialized in numerical timeseries analysis, physical PV clear-sky baseline calculations, and temperature derating.
 >
@@ -164,4 +164,4 @@ docker-compose up --build
 > 2. **Idempotency & Deduplication in DB**: When an anomaly is detected, Spring Boot checks if an active incident already exists for that asset. If yes, it updates the duration and revenue loss without spamming new duplicate tickets."
 
 ### Q3: "How does the Closed-Loop Verification state machine work?"
-> **Answer**: "Most ticketing tools assume an issue is fixed once a technician clicks 'Done'. GridOps enforces proof: when marked complete, the incident moves to `PENDING_VERIFICATION`. A Spring `@Scheduled` background worker aggregates new telemetry over a 60-minute window. If generation recovers to $\ge 95\%$ of expected physical output, the incident auto-closes with a verified audit event. If it falls short, it automatically reopens for re-inspection."
+> **Answer**: "Most ticketing tools assume an issue is fixed once a technician clicks 'Done'. Solatrace enforces proof: when marked complete, the incident moves to `PENDING_VERIFICATION`. A Spring `@Scheduled` background worker aggregates new telemetry over a 60-minute window. If generation recovers to $\ge 95\%$ of expected physical output, the incident auto-closes with a verified audit event. If it falls short, it automatically reopens for re-inspection."

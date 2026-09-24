@@ -20,7 +20,7 @@ export const App: React.FC = () => {
           </Routes>
         </main>
         <footer className="border-t border-slate-900 bg-slate-950/40 py-6 text-center text-xs text-slate-500">
-          GridOps Platform • Renewable Energy Asset Performance & Operations System
+          Solatrace Platform • Renewable Energy Asset Performance & Operations System
         </footer>
       </div>
     </Router>

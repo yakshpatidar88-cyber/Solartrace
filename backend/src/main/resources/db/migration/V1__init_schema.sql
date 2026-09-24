@@ -1,4 +1,4 @@
--- GridOps Schema Initialization (PostgreSQL)
+-- Solatrace Schema Initialization (PostgreSQL)
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 

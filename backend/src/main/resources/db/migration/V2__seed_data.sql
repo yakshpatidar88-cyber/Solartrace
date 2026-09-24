@@ -1,4 +1,4 @@
--- GridOps Initial Seed Data for Demo & Realistic Simulation
+-- Solatrace Initial Seed Data for Demo & Realistic Simulation
 
 -- 1. Insert Sites
 INSERT INTO sites (id, name, location, capacity_mw, grid_connection_type) VALUES
@@ -16,7 +16,7 @@ ON CONFLICT (id) DO NOTHING;
 
 -- 3. Insert Technicians
 INSERT INTO technicians (id, name, email, phone, skill_level, is_available) VALUES
-('c0000000-0000-0000-0000-000000000001', 'Alex Mercer', 'alex.mercer@gridops.io', '+1-555-0192', 'LEAD_INVERTER_SPECIALIST', true),
-('c0000000-0000-0000-0000-000000000002', 'Sarah Chen', 'sarah.chen@gridops.io', '+1-555-0193', 'SENIOR_SOLAR_TECH', true),
-('c0000000-0000-0000-0000-000000000003', 'Carlos Ruiz', 'carlos.ruiz@gridops.io', '+1-555-0194', 'HIGH_VOLTAGE_ELECTRICIAN', false)
+('c0000000-0000-0000-0000-000000000001', 'Alex Mercer', 'alex.mercer@solatrace.io', '+1-555-0192', 'LEAD_INVERTER_SPECIALIST', true),
+('c0000000-0000-0000-0000-000000000002', 'Sarah Chen', 'sarah.chen@solatrace.io', '+1-555-0193', 'SENIOR_SOLAR_TECH', true),
+('c0000000-0000-0000-0000-000000000003', 'Carlos Ruiz', 'carlos.ruiz@solatrace.io', '+1-555-0194', 'HIGH_VOLTAGE_ELECTRICIAN', false)
 ON CONFLICT (id) DO NOTHING;

@@ -3,11 +3,11 @@ server:
 
 spring:
   application:
-    name: gridops-backend
+    name: solatrace-backend
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/gridops_db}
-    username: ${SPRING_DATASOURCE_USERNAME:gridops_user}
-    password: ${SPRING_DATASOURCE_PASSWORD:gridops_secure_password}
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/solatrace_db}
+    username: ${SPRING_DATASOURCE_USERNAME:solatrace_user}
+    password: ${SPRING_DATASOURCE_PASSWORD:solatrace_secure_password}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:

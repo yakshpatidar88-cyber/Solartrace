@@ -1,5 +1,5 @@
 """
-GridOps Synthetic Telemetry Generator
+Solatrace Synthetic Telemetry Generator
 Generates realistic solar PV timeseries data with diurnal curves, temperature effects, and simulated faults.
 """
 import math
@@ -103,7 +103,7 @@ def stream_live_loop(interval_seconds: int = 5):
     """
     Continuously sends real-time 5-minute simulated steps to the running backend
     """
-    print("🚀 Starting GridOps Real-time Telemetry Streamer...")
+    print("🚀 Starting Solatrace Real-time Telemetry Streamer...")
     print(f"📡 Ingestion endpoint: {BACKEND_URL}")
     step = 0
     while True:

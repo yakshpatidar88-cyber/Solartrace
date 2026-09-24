@@ -13,7 +13,7 @@
     <groupId>com.gridops</groupId>
     <artifactId>backend</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>GridOps Core Operations Backend</name>
+    <name>Solatrace Core Operations Backend</name>
     <description>Core business operations, telemetry pipeline, incident prioritization, and verification engine</description>
 
     <properties>

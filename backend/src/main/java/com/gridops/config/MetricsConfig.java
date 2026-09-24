@@ -20,12 +20,12 @@ public class MetricsConfig {
     @PostConstruct
     public void registerCustomMetrics() {
         // Custom Gauge: Total active maintenance incidents
-        Gauge.builder("gridops.incidents.active.count", incidentRepository, MaintenanceIncidentRepository::countActiveIncidents)
+        Gauge.builder("solatrace.incidents.active.count", incidentRepository, MaintenanceIncidentRepository::countActiveIncidents)
                 .description("Number of currently active maintenance incidents (OPEN, ASSIGNED, IN_PROGRESS, PENDING_VERIFICATION)")
                 .register(meterRegistry);
 
         // Custom Gauge: Total open anomalies
-        Gauge.builder("gridops.anomalies.open.count", anomalyRepository, repo -> repo.count())
+        Gauge.builder("solatrace.anomalies.open.count", anomalyRepository, repo -> repo.count())
                 .description("Total number of tracked anomaly records in the platform")
                 .register(meterRegistry);
     }

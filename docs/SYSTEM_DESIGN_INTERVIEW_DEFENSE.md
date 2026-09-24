@@ -1,4 +1,4 @@
-# 🎓 GridOps: System Design & Technical Interview Defense Manual
+# 🎓 Solatrace: System Design & Technical Interview Defense Manual
 
 > **A comprehensive technical interview reference for engineering placements.**  
 > Covers distributed systems trade-offs, concurrency, data integrity, mathematical modeling, and production readiness.
@@ -48,7 +48,7 @@ $$P_{\text{expected}} = P_{\text{rated}} \times \left(\frac{G}{1000\,\text{W/m}^
 
 - **Temperature Derating Coefficient ($\gamma \approx -0.38\% / ^\circ\text{C}$)**:
   - Solar cells lose power when surface temperature exceeds $25^\circ\text{C}$ (Standard Test Conditions). On a hot $40^\circ\text{C}$ summer day with $1000\,\text{W/m}^2$ irradiance, cell temperature can reach $65^\circ\text{C}$, causing an unavoidable $\approx 15.2\%$ drop in generation.
-  - **Why this matters**: Naive thresholding would flag this as a critical failure. GridOps computes the theoretical thermal derating dynamically, eliminating 80% of false alarms.
+  - **Why this matters**: Naive thresholding would flag this as a critical failure. Solatrace computes the theoretical thermal derating dynamically, eliminating 80% of false alarms.
 - **NOCT Estimation**: If module temperature sensors are unavailable, cell temperature is inferred using:
   $$T_{\text{cell}} = T_{\text{ambient}} + \left(\frac{\text{NOCT} - 20}{800}\right) \times G$$
 
@@ -84,7 +84,7 @@ stateDiagram-v2
 ```
 
 - **Problem in Traditional Ops**: Technicians close tickets manually before verifying if the solar string or inverter actually recovered, causing repeated truck rolls.
-- **GridOps Solution**: The system moves the incident to `PENDING_VERIFICATION` and continuously compares post-repair telemetry against physical baselines for 60 minutes.
+- **Solatrace Solution**: The system moves the incident to `PENDING_VERIFICATION` and continuously compares post-repair telemetry against physical baselines for 60 minutes.
 - **Auto-Close**: If daylight generation reaches $\ge 95\%$ of baseline, the incident auto-closes with an audit badge. Otherwise, it automatically flags the ticket for rework.
 
 ---

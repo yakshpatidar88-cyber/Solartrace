@@ -1,7 +1,7 @@
 # 📄 Day 1 Specification: System Architecture & Synthetic Data Contract
 
 ## 1. Project Scope & Frozen MVP
-GridOps is a platform for renewable energy operations. The MVP scope includes:
+Solatrace is a platform for renewable energy operations. The MVP scope includes:
 1. **Asset Management**: Tracking Sites and Solar Inverters/Strings.
 2. **Telemetry Ingestion**: Ingesting 5-minute timeseries points (irradiance, ambient/cell temperature, expected output kW, actual output kW).
 3. **Anomaly Classification**: Detecting sustained underperformance drops ($\ge 15\%$ drop for $\ge 3$ consecutive windows).

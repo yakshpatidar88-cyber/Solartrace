@@ -1,8 +1,7 @@
-# ⚡ GridOps: Renewable Energy Asset Performance & Operations Platform
+# ☀️ Solatrace: Renewable Energy Asset Performance & Operations Platform
 
 > **An operational telemetry, anomaly detection, and maintenance verification platform for solar arrays, inverters, and battery energy storage systems (BESS).**
 
-[![CI Pipeline](https://github.com/gridops/gridops/actions/workflows/backend-ci.yml/badge.svg)](https://github.com/gridops/gridops)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Java 21](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/)
 [![Spring Boot 3](https://img.shields.io/badge/Spring%20Boot-3.3-green.svg)](https://spring.io/projects/spring-boot)
@@ -13,7 +12,7 @@
 ---
 
 ## 1. System Overview
-GridOps bridges the gap between raw timeseries telemetry and actionable site operations. When renewable generation deviates from expected physical baselines, GridOps:
+Solatrace bridges the gap between raw timeseries telemetry and actionable site operations. When renewable generation deviates from expected physical baselines, Solatrace:
 1. Filters out momentary noise and detects **sustained underperformance**.
 2. Automatically generates **Maintenance Incidents** ranked by estimated revenue/power loss, asset criticality, and duration.
 3. Dispatches and tracks **Work Orders** assigned to field technicians.
@@ -103,5 +102,5 @@ docker-compose up --build -d
 - **Frontend Dashboard**: http://localhost:3000
 - **Spring Boot API & Swagger**: http://localhost:8080/swagger-ui.html
 - **FastAPI Analytics API Docs**: http://localhost:8000/docs
-- **PostgreSQL**: `localhost:5432` (`gridops_db` / `gridops_user`)
+- **PostgreSQL**: `localhost:5432` (`solatrace_db` / `solatrace_user`)
 - **Redis**: `localhost:6379`

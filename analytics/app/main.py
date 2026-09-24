@@ -13,7 +13,7 @@ from app.baseline import calculate_expected_output
 from app.anomaly import detect_anomalies
 
 app = FastAPI(
-    title="GridOps Analytics Service",
+    title="Solatrace Analytics Service",
     description="Microservice for solar PV baseline calculation, rolling timeseries deviation, and sustained anomaly classification.",
     version="1.0.0"
 )
@@ -28,7 +28,7 @@ app.add_middleware(
 
 @app.get("/health")
 def health_check():
-    return {"status": "healthy", "service": "gridops-analytics", "version": "1.0.0"}
+    return {"status": "healthy", "service": "solatrace-analytics", "version": "1.0.0"}
 
 @app.post("/api/v1/baseline", response_model=BaselineResponse)
 def compute_baseline(req: BaselineCalculationRequest):
